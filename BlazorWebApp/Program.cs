@@ -1,6 +1,14 @@
 using BlazorWebApp.Components;
+using BlazorWebApp.Models;
+using BlazorWebApp.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<ClubDbContext>(c =>
+    c.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IClubService, ClubService>();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
