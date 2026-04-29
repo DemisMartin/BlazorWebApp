@@ -8,19 +8,19 @@
 
 <div class="mb-3">
     <label for="clubName" class="form-label">Club Name</label>
-    <input type="text" class="form-control" id="clubName" @bind ="newClubName" />
+    <input type="text" class="form-control" id="clubName" @bind="newClubName" />
 </div>
 <div class="mb-3">
     <label for="yearFounded" class="form-label">Year Founded</label>
-    <input type="text" class="form-control" id="yearFounded" @bind ="yearFounded" />
+    <input type="text" class="form-control" id="yearFounded" @bind="yearFounded" />
 </div>
 <div class="mb-3">
     <label for="country" class="form-label">Country</label>
-    <input type="text" class="form-control" id="country" @bind ="newCountry" />
+    <input type="text" class="form-control" id="country" @bind="newCountry" />
 </div>
 
-<button class="btn btn-secondary" @onclick ="Cancel">Cancel</button>
-<button class="btn btn-primary" @onclick ="InsertClub">Save</button>
+<button class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+<button class="btn btn-primary" @onclick="InsertClub">Save</button>
 
 @code {
     private string newClubName;
@@ -31,11 +31,11 @@
     {
         // Create a new club object
         var club = new Models.Club
-            {
-                ClubName = newClubName,
-                YearFounded = yearFounded,
-                Country = newCountry
-            };
+        {
+            ClubName = newClubName,
+            YearFounded = yearFounded,
+            Country = newCountry
+        };
 
         // Insert the club into the database
         await ClubService.AddClub(club);
@@ -49,3 +49,5 @@
     {
         // Close the modal and navigate back to the club page
         Navigation.NavigateTo("/club");
+    }
+}

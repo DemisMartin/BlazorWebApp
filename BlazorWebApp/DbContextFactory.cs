@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlazorWebApp
 {
-    public class DbContextFactory
+    public class DbContextFactory : IDesignTimeDbContextFactory<ClubDbContext>
     {
         public ClubDbContext CreateDbContext(string[] args)
         {
